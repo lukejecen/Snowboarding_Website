@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Mountain Trails and Snowboard Examination</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "shortcut icon" href="pics/mammothMountain.jpg"/>
+        <link rel = "shortcut icon" href="pics/snowboard.jpeg"/>
+    </head>
+    <body>
+        <style>
+            /* The container */
+            .container {
+                display: block;
+                position: relative;
+                padding-left: 35px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                font-size: 22px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            /* Hide the browser's default radio button */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            /* Create a custom radio button */
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 25px;
+                width: 25px;
+                background-color: #eee;
+                border-radius: 50%;
+            }
+
+            /* On mouse-over, add a grey background color */
+            .container:hover input ~ .checkmark {
+                background-color: #ccc;
+            }
+
+            /* When the radio button is checked, add a blue background */
+            .container input:checked ~ .checkmark {
+                background-color: #2196F3;
+            }
+
+            /* Create the indicator (the dot/circle - hidden when not checked) */
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            /* Show the indicator (dot/circle) when checked */
+            .container input:checked ~ .checkmark:after {
+                display: block;
+            }
+
+            /* Style the indicator (dot/circle) */
+            .container .checkmark:after {
+                top: 9px;
+                left: 9px;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: white;
+            }
+
+            * {box-sizing: border-box;}
+
+            .img-zoom-container {
+                position: relative;
+                visibility: hidden;
+            }
+
+            .img-zoom-lens {
+                position: absolute;
+                border: 3px solid #d4d4d4;
+                /*set the size of the lens:*/
+                width: 40px;
+                height: 40px;
+            }
+
+            .img-zoom-result {
+                border: 1px solid #d4d4d4;
+                /*set the size of the result div:*/
+                width: 400px;
+                height: 300px;
+             
+              
+            }
+        </style>
+
+        <h1>Click the button to display the Images and other Info</h1>
+        <p> In this poc you see a button that the user can click on which will lead to the user seeing and image of what exactly was selected by the user in this case
+            an image of mammoth mountain and it trails. Also when the radio button is clicked, the title of the image, a description, and the price of
+            the trip is displayed using an onclick function. The description, title, and price are all called from a hard-coded array that I had created
+            called picObjList. In the future demo that I create it will have multiple buttons that will diplay different pictures and text from an array that
+            is created.<br></p>
+        <label class="container"> 
+            <input type="radio" name="radio" onclick = someFunc()>
+            Mammoth Mountain
+            <span class="checkmark"></span>
+        </label>
+        <br>        
+        <div class="img-zoom-container">
+            <img id="myimage" src="https://media.skigebiete-test.de/images/ecu/entity/e_skiresort/ski-resort_mammoth-mountain_n4796-149743-1_pan.jpg" width="400" height="240">
+            <div id="myresult" class="img-zoom-result"></div>
+        </div>
+
+        <p id="demo"></p>
+        <script>
+            function someFunc() {
+                checkValue(1);
+                displayInfo();
+            }
+
+            function checkValue(fieldvalue) {
+                switch (fieldvalue) {
+                    case 1:
+                        imageZoom("myimage", "myresult");
+                        break;
+                    case 2:
+                        imageZoom("myImage2", "myResult");
+                        break;
+                }
+            }
+
+            function imageZoom(imgID, resultID) {
+                var img, lens, result, cx, cy;
+                img = document.getElementById(imgID);
+                img.style.visibility = "visible";
+                result = document.getElementById(resultID);
+                result.style.visibility = "visible";
+                /*create lens:*/
+                lens = document.createElement("DIV");
+                lens.style.visibility = "visible";
+                lens.setAttribute("class", "img-zoom-lens");
+                /*insert lens:*/
+                img.parentElement.insertBefore(lens, img);
+                /*calculate the ratio between result DIV and lens:*/
+                cx = result.offsetWidth / lens.offsetWidth;
+                cy = result.offsetHeight / lens.offsetHeight;
+                /*set background properties for the result DIV:*/
+                result.style.backgroundImage = "url('" + img.src + "')";
+                result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+                /*execute a function when someone moves the cursor over the image, or the lens:*/
+                lens.addEventListener("mousemove", moveLens);
+                img.addEventListener("mousemove", moveLens);
+                /*and also for touch screens:*/
+                lens.addEventListener("touchmove", moveLens);
+                img.addEventListener("touchmove", moveLens);
+                function moveLens(e) {
+                    var pos, x, y;
+                    /*prevent any other actions that may occur when moving over the image:*/
+                    e.preventDefault();
+                    /*get the cursor's x and y positions:*/
+                    pos = getCursorPos(e);
+                    /*calculate the position of the lens:*/
+                    x = pos.x - (lens.offsetWidth / 2);
+                    y = pos.y - (lens.offsetHeight / 2);
+                    /*prevent the lens from being positioned outside the image:*/
+                    if (x > img.width - lens.offsetWidth) {
+                        x = img.width - lens.offsetWidth;
+                    }
+                    if (x < 0) {
+                        x = 0;
+                    }
+                    if (y > img.height - lens.offsetHeight) {
+                        y = img.height - lens.offsetHeight;
+                    }
+                    if (y < 0) {
+                        y = 0;
+                    }
+                    /*set the position of the lens:*/
+                    lens.style.left = x + "px";
+                    lens.style.top = y + "px";
+                    /*display what the lens "sees":*/
+                    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+                }
+                function getCursorPos(e) {
+                    var a, x = 0, y = 0;
+                    e = e || window.event;
+                    /*get the x and y positions of the image:*/
+                    a = img.getBoundingClientRect();
+                    /*calculate the cursor's x and y coordinates, relative to the image:*/
+                    x = e.pageX - a.left;
+                    y = e.pageY - a.top;
+                    /*consider any page scrolling:*/
+                    x = x - window.pageXOffset;
+                    y = y - window.pageYOffset;
+                    return {x: x, y: y};
+                }
+            }
+            function displayInfo() {
+                var div = document.getElementById("demo");
+                var text = "";
+                text = picObjList[0].title + "<br>" + picObjList[0].description + "<br>" + picObjList[0].price;
+                div.innerHTML = text;
+            }
+            var picObjList = [
+                {title: "Mammoth Mountain", description: "Mammoth mountain is a snowboarding range\n\
+         in california. It includes over 20 different trails with a variety of different difficulties good for all experience levels", price: "price: 2100"},
+            ];
+
+
+        </script>
+
+    </body>
+</html>

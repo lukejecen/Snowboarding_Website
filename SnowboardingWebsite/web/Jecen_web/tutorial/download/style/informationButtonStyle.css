@@ -1,0 +1,57 @@
+
+.informationButtonStyle1 * {box-sizing: border-box;}
+
+.informationButtonStyle1{
+    background-color: #fcf4b0;
+}
+.informationButtonStyle1 .img{
+    padding: 0px;
+    width: 400px;
+    height: 300px; 
+}
+.informationButtonStyle1 .img-zoom-container {
+    position: static;
+}
+
+.informationButtonStyle1 .img-zoom-lens {
+    position: relative;
+    border: 3px solid #00f404;
+    /*set the size of the lens:*/
+    width: 40px;
+    height: 40px;
+}
+
+.informationButtonStyle1 .img-zoom-result {
+    border: 1px solid #020000;
+    /*set the size of the result div:*/
+    width: 400px;
+    height: 300px;
+}
+.informationButtonStyle2 * {box-sizing: border-box;}
+
+.informationButtonStyle2{
+    background-color: cyan;
+}
+.informationButtonStyle2 .img{
+    padding: 0px;
+    width: 300px;
+    height: 300px; 
+}
+.informationButtonStyle2 .img-zoom-container {
+    position: static;
+}
+
+.informationButtonStyle2 .img-zoom-lens {
+    position: relative;
+    border: 3px solid #00f404;
+    /*set the size of the lens:*/
+    width: 40px;
+    height: 40px;
+}
+
+.informationButtonStyle2 .img-zoom-result {
+    border: 1px solid #020000;
+    /*set the size of the result div:*/
+    width: 300px;
+    height: 300px;
+}

@@ -1,0 +1,67 @@
+[
+    {
+        "mountainVisitId": "1",
+        "mountainName": "Camelback Mountain",
+        "description" : "Really great and enjoyable mountain with plenty of trails in PA",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/1d/8c/3f/a1/skiing-snowboarding-and.jpg",
+        "dailyFee": "$100.00",
+        "dateVisited": "",
+        "hourlyFee": "$20.00",
+        "webUserId": "1"
+    },
+
+    {
+        "mountainVisitId": "2",
+        "mountainName": "Mammoth Mountain",
+        "description" : "Not for begginers, but great for experienced riders",
+        "image": "https://www.visitmammoth.com/wp-content/uploads/listing_247-1726.jpg",
+        "dailyFee": "$75.00",
+        "dateVisited": "12/21/2016",
+        "hourlyFee": "$30.00",
+        "webUserId": "2"
+    },
+
+    {
+        "mountainVisitId": "3",
+        "mountainName": "Mont Gele",
+        "description" : "Long lines for the slopes but the trails are great",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Picswiss_VS-68-11.jpg",
+        "dailyFee": "$150.00",
+        "dateVisited": "01/05/2019",
+        "hourlyFee": "$15.00",
+        "webUserId": "1"
+    },
+
+    {
+        "mountainVisitId": "4",
+        "mountainName": "CamelBack Mountain",
+        "description" : "Some of the best black diamond trails I Have ever ridden",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/1d/8c/3f/a1/skiing-snowboarding-and.jpg",
+        "dailyFee": "$110.00",
+        "dateVisited": "01/25/2021",
+        "hourlyFee": "$20.00",
+        "webUserId": "228"
+    },
+
+    {
+        "mountainVisitId": "5",
+        "mountainName": "Whiteface Mountain",
+        "description" : "Was a great trip for the family good for begginers and experts",
+        "image": "https://www.newyorkbyrail.com/wp-content/uploads/2017/07/Whiteface-Mountain-Lake-Placid-NY.jpg",
+        "dailyFee": "",
+        "dateVisited": "",
+        "hourlyFee": "$25.00",
+        "webUserId": "343"
+    },
+
+    {
+        "mountainVisitId": "6",
+        "mountainName": "Mount Snow",
+        "description" : "A little expensive but till a blast",
+        "image": "https://www.skimag.com/wp-content/uploads/2020/10/ski1120-rge17-mountsnow-courtesy.jpg?width=730",
+        "dailyFee": "$200.00",
+        "dateVisited": "02/01/1017",
+        "hourlyFee": "$15.00",
+        "webUserId": "347"
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "make": "Audi",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/white_audi.png",
+        "condition": "fair",
+        "price": "21000"
+    },
+    {
+        "make": "Disney",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/pixar.png",
+        "condition": "superb",
+        "price": "50000"
+    },
+    {
+        "make": "Buick",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/buick.png",
+        "condition": "great",
+        "price": "15000"
+    },
+    {
+        "make": "Ford",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/ford.png",
+        "condition": "poor",
+        "price": "5000"
+    },
+    {
+        "make": "Audi (Black)",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/black_audi.png",
+        "condition": "poor",
+        "price": "5000"
+    },
+    {
+        "make": "Audi (Blue)",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/blue_audi.png",
+        "condition": "poor",
+        "price": "5000"
+    },
+    {
+        "make": "Beamer",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/bmw.png",
+        "condition": "poor",
+        "price": "5000"
+    },
+    {
+        "make": "Mercedes",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/mercedes.png",
+        "condition": "poor",
+        "price": "5000"
+    },
+    {
+        "make": "Ford (Model T)",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/model_t.png",
+        "condition": "poor",
+        "price": "5000"
+    },
+    {
+        "make": "Audi (Yellow)",
+        "pic": "http://cis-linux2.temple.edu/~sallyk/pics_car/yellow_audi.png",
+        "condition": "poor",
+        "price": "5000"
+    }
+]

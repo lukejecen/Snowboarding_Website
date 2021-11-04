@@ -1,0 +1,18 @@
+
+.snowboardTripStyle {
+    background-color: white;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    margin: 1rem;
+}
+.snowboardTripStyle img { /* applies to any img tag that's in an "obj" dom element */
+    width:100%;
+    border-radius:1.5rem;
+    box-shadow: 0.3rem 0.3rem 0.2rem rgba(0,0,0,0.8);
+    /* box shadow: left offset, right offset, size of blur, color */
+}
+
+.snowboardTripStyle .imageContainer { /* applies to any div that's in an "obj" dom element */
+    background-color: white;
+    width: 100%;
+}

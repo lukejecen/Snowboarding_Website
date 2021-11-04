@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Make Information Button Component</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/informationButtonStyle.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>
+          Click on the Radio Buttons below for more Information About them!  
+        </h1>
+        <div>
+            <div id="content" ></div>
+            <script src="js/MakeInformationButton.js"></script>
+            <script>
+                "use strict";
+                var objList1 = [
+                    {
+                        "title": "Mammoth mountain",
+                        "imageFile": "https://skimap.org/data/530/2589/1492528386.jpg",
+                        "description": "Mammoth mountain is a snowboarding range\n\
+         in california. It includes over 20 different trails with a variety of different difficulties good for all experience levels",
+                        "price": "$3,000"
+                    },
+                    {
+                        "title": "CamelBack Mountain",
+                        "imageFile": "https://i.pinimg.com/originals/66/02/9d/66029db0d0e22df92a8699eba92b2cca.jpg",
+                        "description": "Is a great snowboarding mountain with parks for snowboardser who love to do tricks. Is located in\n\
+            the pocons in penssylvania with terrific scencery and is a great time for everyone.",
+                        "price": "$3,200"
+                    }
+                ];
+                var objList2 = [
+                    {
+                        "title": "All-Mountain snowboard",
+                        "imageFile": "https://www.globosurfer.com/wp-content/uploads/2019/06/5-Capita-Defenders-of-Awesome-Snowboard.jpg",
+                        "description": "All Mountain snowboards are great for pushing yourself to the limit when going down trails. Perfect for the most experoenced snowboarder\n\
+            this snowboard allows you to get the best out of yourself. The turns and speed on this board are fantatic perfect for a trail snowboarder.",
+                        "price": "$4,000"
+                    },
+                    {
+                        "title": "Freestyle snowboard",
+                        "imageFile": "https://images.evo.com/imgp/700/91920/421212/clone.jpg",
+                        "description": "This snowboard is great for those who want to hit the tricjk park on there snowboarding trips\n\
+             it is great for all types of tricks. It is very lightweight and not great for going down mountains at high speeds.",
+                        "price": "$5,000"
+                    }
+                ];
+                var makeInformationButton1 = MakeInformationButton(objList1);
+                makeInformationButton1.classList.add("informationButtonStyle1");
+                document.getElementById("content").appendChild(makeInformationButton1);
+                
+
+                var makeInformationButton2 = MakeInformationButton(objList2);
+                makeInformationButton2.classList.add("informationButtonStyle2");
+                document.getElementById("content").appendChild(makeInformationButton2);
+            </script>
+        </div>
+    </body>
+</html>
+

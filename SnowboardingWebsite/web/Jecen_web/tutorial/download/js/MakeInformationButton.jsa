@@ -1,0 +1,134 @@
+function MakeInformationButton(objList) {
+
+    function MakeEle(obj) {
+        var item = document.createElement("div");
+        item.classList.add("item");
+
+        //title of the object
+        var h2 = document.createElement("h2");
+        h2.innerHTML = obj.title;
+        item.appendChild(h2);
+
+        //button that is clicked to show image and info
+        var button = document.createElement('Input');
+        button.setAttribute("type", "radio");
+        //button.setAttribute("label", h2);
+        h2.appendChild(button);
+
+
+        var p = document.createElement("p");
+        item.appendChild(p);
+
+        function imageZoom(imgID, resultID) {
+            var img, lens, result, cx, cy;
+            img = document.createElement("img");
+            img.src = imgID;
+            img.setAttribute("class", "img");
+            img.style.visibility = "visible";
+            p.appendChild(img);
+            result = resultID;
+            result.style.visibility = "visible";
+            result.setAttribute("class", "img-zoom-result");
+            result.src = imgID;
+            p.appendChild(result);
+            /*create lens:*/
+            lens = document.createElement("div");
+            lens.style.visibility = "visible";
+            lens.setAttribute("class", "img-zoom-lens");
+            /*insert lens:*/
+            img.parentElement.insertBefore(lens, img);
+            /*calculate the ratio between result DIV and lens:*/
+            cx = result.offsetWidth / lens.offsetWidth;
+            cy = result.offsetHeight / lens.offsetHeight;
+            /*set background properties for the result DIV:*/
+            result.style.backgroundImage = "url('" + imgID + "')";
+            result.style.backgroundSize = (imgID.width * cx) + "px " + (imgID.height * cy) + "px";
+            /*execute a function when someone moves the cursor over the image, or the lens:*/
+            lens.addEventListener("mousemove", moveLens);
+            img.addEventListener("mousemove", moveLens);
+            /*and also for touch screens:*/
+            lens.addEventListener("touchmove", moveLens);
+            img.addEventListener("touchmove", moveLens);
+            function moveLens(e) {
+                var pos, x, y;
+                /*prevent any other actions that may occur when moving over the image:*/
+                e.preventDefault();
+                /*get the cursor's x and y positions:*/
+                pos = getCursorPos(e);
+                /*calculate the position of the lens:*/
+                x = pos.x - (lens.offsetWidth / 2);
+                y = pos.y - (lens.offsetHeight / 2);
+                /*prevent the lens from being positioned outside the image:*/
+                if (x > img.width - lens.offsetWidth) {
+                    x = img.width - lens.offsetWidth;
+                }
+                if (x < 0) {
+                    x = 0;
+                }
+                if (y > img.height - lens.offsetHeight) {
+                    y = img.height - lens.offsetHeight;
+                }
+                if (y < 0) {
+                    y = 0;
+                }
+                /*set the position of the lens:*/
+                lens.style.left = x + "px";
+                lens.style.top = y + "px";
+                /*display what the lens "sees":*/
+                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+            }
+            function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /*get the x and y positions of the image:*/
+                a = img.getBoundingClientRect();
+                /*calculate the cursor's x and y coordinates, relative to the image:*/
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /*consider any page scrolling:*/
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return {x: x, y: y};
+            }
+        }
+
+        var info = document.createElement("div");
+        info.classList.add("info");
+        item.appendChild(info);
+
+        var description = document.createElement("p");
+        description.innerHTML = "<strong>Description:</strong> " + obj.description;
+        info.appendChild(description);
+        info.style.visibility = "hidden";
+
+        var price = document.createElement("p");
+        price.innerHTML = "<strong>Price:</strong> " + obj.price;
+        info.appendChild(price);
+        info.style.visibility = "hidden";
+
+        var myresult = document.createElement("div");
+        myresult.setAttribute("class", "img-zoom-result");
+
+        button.onclick = function () {
+            info.style.visibility = "visible";
+            imageZoom(obj.imageFile, myresult);
+        };
+
+        return item;
+    }
+    var container = document.createElement("div");
+    container.classList.add("widget");
+
+    for (var i = 0; i < objList.length; i++) {
+        var itemDiv = MakeEle(objList[i]);
+        container.appendChild(itemDiv);
+    }
+    return container;
+}
+
+
+
+
+
+
+

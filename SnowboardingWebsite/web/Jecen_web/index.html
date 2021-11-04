@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- HTML comments must be like this... -->
+
+<head>
+    <title>[Snowboarding Club]</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icons/smiley.png" />  
+
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link href="style/clickSortStyle.css" rel="stylesheet" type="text/css" />  
+    <link href="style/NavRouter.css" rel="stylesheet" type="text/css" />  
+    <link href="style/obj.css" rel="stylesheet" type="text/css" />  
+    <link href="style/snowboardTripStyle.css" rel="stylesheet" type="text/css" /> 
+    <link href="style/slideShowStyle.css" rel="stylesheet" type="text/css" /> 
+    <link href="tutorial/download/style/informationButtonStyle.css" rel="stylesheet" type="text/css" /> 
+
+    <style>
+
+
+    </style>
+</head>
+
+<div id="titleNav">
+    <div id="title">
+        Snowboarding Club
+    </div>
+    <div id="nav">
+
+    </div>
+</div>
+<div id="content">
+
+    <!-- HTML comment: 
+        The content div is empty. It will get content "injected into it"
+        by the NavRouter component.
+    -->
+
+</div> <!-- end of content area -->
+<div id="footer">
+    Luke Jecen
+</div>
+
+
+<!-- Suggest you keep these in the same order as you see them in the NB project pane --> 
+<script> "use strict";</script>
+<script src="js/reusable/MakeClickSort.js"></script>
+<script src="js/reusable/MakeNavRouter.js"></script>
+<script src="js/reusable/MakeObj.js"></script>
+<script src="js/reusable/MakeSnowboardTrip.js"></script>
+<script src="js/reusable/MakeSlideShow.js"></script>
+<script src="js/reusable/ajax.js"></script>
+
+<script src="js/components/blog.js"></script>
+<script src="js/components/clickSortMountainContent.js"></script>
+<script src="js/components/clickSortUserContent.js"></script>
+<script src="js/components/home.js"></script>
+<script src="js/components/objContent.js"></script>
+<script src="js/components/snowboardTripContent.js"></script>
+<script src="js/components/slideShowContent.js"></script>
+<script src="tutorial/download/js/MakeInformationButton.js"></script>
+<script>
+
+    // Home | Account | Search | Tutorial | Blog
+
+    var myNavList = [
+
+        // action attribute is a function name - no quotes aroudnd home.
+        {linkText: "Home", linkURL: "#/home", action: home},
+        {
+
+            header: "Search",
+            subMenu: [
+                {linkText: "Objects", linkURL: "#/objects", action: objContent},
+                {linkText: "Make Snowboard Trip", linkURL: "#/SnowboardTrip", action: snowboardTripContent},
+                {linkText: "Slide Show", linkURL: "#/SlideShow", action: slideShowContent},
+                {linkText: "Users", linkURL: "#/UserClickSort", action: clickSortUserContent},
+                {linkText: "Mountains", linkURL: "#/MountainClickSort", action: clickSortMountainContent}
+            ]
+        },
+        {
+            header: "Tutorial",
+            subMenu: [
+                {linkText: "Proposal", linkURL: "#/Proposal", action: "tutorial/proposal.pdf"},
+                {linkText: "Proof Of Concept", linkURL: "#/tutPOC", action: "tutorial/poc.html"},
+                {linkText: "Demo", linkURL: "#/tutHome", action: "tutorial/download/demo.html"},
+                {linkText: "Tutorial Home", linkURL: "#/tutDemo", action: "tutorial/index.html"}
+            ]
+        },
+
+        // action attribute is a function name - no quotes around blog.
+        {linkText: "Blog", linkURL: "#/blog", action: blog}
+    ];
+
+    var myNav = MakeNavRouter({
+        navId: "nav", // this is where the nav bar will be injected
+        navList: myNavList, // the list of link objects (linkText, linkURL, actions)
+        contentId: "content", // the id where content is to be injected
+        startLink: "#/home"     // routing will set this as the first link. 
+    });
+
+</script>
+

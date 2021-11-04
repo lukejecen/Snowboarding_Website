@@ -1,0 +1,103 @@
+/* This rule makes everything use border-box sizing which is desireable. With border-box sizing, 
+        padding is not added to the width. For example, if you make the footer 100% and it has some padding, 
+        you'll see a horizontal because the footer becomes a little wider than 100%                            */
+* { 
+    box-sizing: border-box;
+}
+
+bhtml, body {  
+    margin:0; 
+    padding:0; 
+}
+#titleNav { /* titleNav is fixed, always at the top */
+    /* position fixed removes the element from the normal flow, placing it where you specify with top/bottom, left/right */
+    display: flex;
+    flex-direction:column;/*column used to display title and nav on top of one another  */
+    position:fixed; 
+    top:0px;
+    left:0px;
+    z-index: 1;     /* To make sure titleNav is on top of content, give it a higher z-index than content 
+                    (content would have default value of zero). */
+    width: 100%;    
+    background-color:rgb(9, 145, 245);
+    padding-top: 1rem;
+    padding-bottom:0.5rem;
+    /* height: 86px; /* NEW */
+    color: white;
+    font-family: serif; 
+    font-weight: bold;
+}
+body { 
+    background-color: rgb(254, 253, 251);
+    color: black;  /* color of font */
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; /* no tail font is more readable for small font */
+    font-size:1rem;
+}
+
+#title {
+    padding:12px;
+    padding-bottom: 0px;
+    font-size:2.5rem;
+    letter-spacing: 1.5px; /* spaces out letters*/
+    white-space: nowrap; /* doesnt allow title to wrap */
+}
+
+#nav {
+    top: 0px;
+    right: 0px;
+    text-align:right;
+    font-size:24px;
+    padding-bottom: 12px;
+    padding-top:32px;
+    white-space: nowrap;  /* doesnt allow links to wrap */
+}
+
+#nav a {
+    text-decoration:none;  /* Do not want links in "nav" to be underlined */
+    color: white; /* white: to provide color for links, you have to style the "a" tag */
+}
+
+#content {  /* Added padding top and bottom to prevent top/bottom content from getting hidden under titleNav/footer */ 
+    padding:1rem;
+    padding-top: 80px; /* prevent the top of the content from getting hidden under the fixed titleNav */
+    padding-bottom: 40px; /* prevent the the bottom of the content from getting hidden under the fixed footer */
+    margin-top: 6rem; /* more top margin needed for mobile design so the titlenav doesnt cover up the title */
+    margin-bottom: 2.5rem;
+}
+
+#footer { /* footer fixed, always at the bottom */
+    position: fixed;
+    bottom: 0px; 
+    left: 0px; 
+    z-index: 1; /* make sure footer is on top of content which would have default z-index value of 0 */
+    background-color:rgb(9, 145, 245);
+    color: white; 
+    width:100%;
+    text-align:center;
+    padding:8px;	 	 
+}
+
+.center { /* class used to center */
+    display: block; /*block used as it starts it on a new line and takes up the whole width */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; /*set width to 100% so the whole image will show up in mobile use */
+}
+/*For the desktop view */
+@media only screen and (min-width: 40rem){
+    #content{
+        margin-top: 4.5rem; /*Less top margin needed when in desktop view as title and tileNav are side by side not on top of each other */
+    }
+
+    #titleNav{
+        flex-direction: row; /* row used to put title and tileNav side by side */
+        justify-content: space-between; /* flex attribute will push title left and nav right with space inbetween */
+    }
+    .center { /* class used to center */
+        display: block; /*block used as it starts it on a new line and takes up the whole width */
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%; /* set width to 60% as otherwise the image wil go from side to side using block this will cut it down so not the full width*/
+    }
+
+}
